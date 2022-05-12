@@ -1,0 +1,58 @@
+<section class="product spad">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <ul class="filter__controls">
+                  <li [ngClass]="{'active': active == 1}" (click)="activated(1)" data-filter="*">Best Sellers</li>
+                  <li [ngClass]="{'active': active == 2}"  (click)="activated(2)" data-filter=".new-arrivals">New Arrivals</li>
+                  <li [ngClass]="{'active': active == 3}" (click)="activated(3)" data-filter=".hot-sales">Hot Sales</li>
+              </ul>
+          </div>
+      </div>
+      <div class="row product__filter" >
+          <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals" *ngFor="let item of produtList trackBy: productsTrackBy">
+              <div class="product__item">
+                  <div class="product__item__pic set-bg" [style]="'background-image:url('+item.imagePath+')'">
+                      <span class="label">New</span>
+                      <ul class="product__hover">
+                          <li><a href="#"><img src="assets/images/heart.png" alt=""></a></li>
+                          <li><a href="#"><img src="assets/images/compare.png" alt=""> <span>Compare</span></a></li>
+                          <li><a role="button" (click)="openDialog(item)"><img src="assets/images/search.png" alt=""></a></li>
+                      </ul>
+                  </div>
+                  <div class="product__item__text">
+                      <h6>{{item.name}}</h6>
+                      <a (click)="addTocart(item)" role="button" class="add-cart">+ Add To Cart</a>
+                      
+                        <div class="rating">
+                          <i (click)="rate(item , 1)" [ngClass]="{'fa-star' : true, 'rateActiv': item.rate >= 1, 'fa':true,'normRat':item.rate <1}"></i>
+                          <i (click)="rate(item , 2)" [ngClass]="{'fa-star' : true, 'rateActiv': item.rate >= 2, 'fa':true,'normRat':item.rate <2}"></i>
+                          <i (click)="rate(item , 3)" [ngClass]="{'fa-star' : true, 'rateActiv': item.rate  >= 3, 'fa':true,'normRat':item.rate <3}"></i>
+                          <i (click)="rate(item , 4)" [ngClass]="{'fa-star' : true, 'rateActiv': item.rate  >= 4, 'fa':true,'normRat':item.rate <4}"></i>
+                          <i (click)="rate(item , 5)" [ngClass]="{'fa-star' : true, 'rateActiv': item.rate  == 5, 'fa':true,'normRat':item.rate <5}"></i>
+                      </div>
+                     
+                      <h5>{{item.price|currency}}</h5>
+                      <div class="product__color__select">
+                          <label for="pc-1">
+                              <input type="radio" id="pc-1">
+                          </label>
+                          <label class="active black" for="pc-2">
+                              <input type="radio" id="pc-2">
+                          </label>
+                          <label class="grey" for="pc-3">
+                              <input type="radio" id="pc-3">
+                          </label>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          
+      </div>
+  </div>
+</section>
+<ng-container *ngIf="loading$ | async">
+  <div class="overlay"></div>
+  <app-men ></app-men>
+</ng-container>

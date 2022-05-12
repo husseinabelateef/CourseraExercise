@@ -1,0 +1,149 @@
+<header class="header-area header-sticky">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="index.html" class="logo">
+                      <img src="assets/images/logo.png">
+                  </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                  <ul class="nav">
+                      <li ><a routerLink="/hexaShop/home/kids" routerLinkActive="active" >Home</a></li>
+                      <li><a routerLink="/hexaShop/shop/product" routerLinkActive="active" role="button" >Products</a></li>
+               
+                      <li><a routerLink="/login" role="button" routerLinkActive="active"><img src="assets/images/heart.png" alt=""></a></li>
+                      <li> <a  routerLink="/hexaShop/cart" role="button"><img src="assets/images/cart.png" alt=""> <span>{{itemNum | async | number}}</span></a></li>
+                      <li class="submenu">
+                          <a href="javascript:;">Pages</a>
+                          <ul>
+                              <li><a routerLink="/login" routerLinkActive="active" >About Us</a></li>
+                              <li><a routerLink="/shop" routerLinkActive="active" >Products</a></li>
+                              <li><a routerLink="/login" routerLinkActive="active" >Single Product</a></li>
+                              <li><a routerLink="/login" routerLinkActive="active">Contact Us</a></li>
+                             
+                          </ul>
+                      </li>
+                      <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                      <li><a routerLink="/HexaAcount/login" *ngIf="!(isLoggedIn | async)" role="button" routerLinkActive="active">Log In</a></li>
+                      <li><a (click)="logout()" *ngIf="(isLoggedIn | async)" role="button" >Log Out</a></li>
+                  </ul>
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+              </nav>
+          </div>
+      </div>
+  </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<!-- ***** Main Banner Area Start ***** -->
+<div class="main-banner" id="top">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="left-content">
+                  <div class="thumb">
+                      <div class="inner-content">
+                          <h4>We Are Hexashop</h4>
+                          <span>Awesome, clean &amp; creative HTML5 Template</span>
+                          <div class="main-border-button">
+                              <a href="#">Purchase Now!</a>
+                          </div>
+                      </div>
+                      <img src="assets/images/left-banner-image.jpg" alt="">
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="right-content">
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <div class="right-first-image">
+                              <div class="thumb">
+                                  <div class="inner-content">
+                                      <h4>Women</h4>
+                                      <span>Best Clothes For Women</span>
+                                  </div>
+                                  <div class="hover-content">
+                                      <div class="inner">
+                                          <h4>Women</h4>
+                                          <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                          <div class="main-border-button">
+                                              <a href="#">Discover More</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <img src="assets/images/baner-right-image-01.jpg">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="right-first-image">
+                              <div class="thumb">
+                                  <div class="inner-content">
+                                      <h4>Men</h4>
+                                      <span>Best Clothes For Men</span>
+                                  </div>
+                                  <div class="hover-content">
+                                      <div class="inner">
+                                          <h4>Men</h4>
+                                          <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                          <div class="main-border-button">
+                                              <a href="#">Discover More</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <img src="assets/images/baner-right-image-02.jpg">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="right-first-image">
+                              <div class="thumb">
+                                  <div class="inner-content">
+                                      <h4>Kids</h4>
+                                      <span>Best Clothes For Kids</span>
+                                  </div>
+                                  <div class="hover-content">
+                                      <div class="inner">
+                                          <h4>Kids</h4>
+                                          <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                          <div class="main-border-button">
+                                              <a href="#">Discover More</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <img src="assets/images/baner-right-image-03.jpg">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="right-first-image">
+                              <div class="thumb">
+                                  <div class="inner-content">
+                                      <h4>Accessories</h4>
+                                      <span>Best Trend Accessories</span>
+                                  </div>
+                                  <div class="hover-content">
+                                      <div class="inner">
+                                          <h4>Accessories</h4>
+                                          <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                          <div class="main-border-button">
+                                              <a href="#">Discover More</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <img src="assets/images/baner-right-image-04.jpg">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -5,17 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MenuComponent } from './Components/Menu/menu/menu.component'
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { DishdetailComponent } from './Components/dishdetail/dishdetail.component';
+import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './Components/Services/AuthInterceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    DishdetailComponent
+    MainLayoutComponent,
+    HeaderComponent,
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +34,18 @@ import { DishdetailComponent } from './Components/dishdetail/dishdetail.componen
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [{
+    provide: 'AuthGuardsService',
+    useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true
+    },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi:true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
