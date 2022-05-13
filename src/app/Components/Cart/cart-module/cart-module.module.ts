@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from '../Cart/Cart.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CartDialogComponent } from '../CartDialog/CartDialog.component';
+
 
 
 const routes :Routes=[
@@ -10,11 +13,13 @@ const routes :Routes=[
 ]
 @NgModule({
   declarations: [
-    CartComponent
+    CartComponent,
+    CartDialogComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatDialogModule
   ]
 })
 export class CartModuleModule { }
