@@ -45,7 +45,7 @@
                                         <span (click)="decreaseQuantity(item)" class="fa fa-angle-left dec qtybtn"></span>
                                         <input type="text"  [value]="item.quantity">
                                         <span (click)="increaseQuantity(item)" class="fa fa-angle-right inc qtybtn"></span>
-                                          
+
                                       </div>
                                   </div>
                               </td>
@@ -74,7 +74,7 @@
                   <ul>
                       <li>Total <span>{{total}}</span></li>
                   </ul>
-                  <a href="#" class="primary-btn">Proceed to checkout</a>
+                  <a role="button" (click)="openDialog()" class="primary-btn">Proceed to checkout</a>
               </div>
           </div>
       </div>

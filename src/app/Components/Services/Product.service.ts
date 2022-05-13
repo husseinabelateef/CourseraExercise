@@ -5,7 +5,9 @@ import { environment } from 'src/environments/environment';
 import { Category } from '../Models/Category';
 import { ProductModel } from '../Models/ProductModel';
 import { CategoryProductViewModel } from '../ViewModel/categoryProductViewModel';
+import { ProductCart } from '../ViewModel/ProductCart';
 import { ProductFiltered } from '../ViewModel/ProductFiltered';
+import { ResponseOrder } from '../ViewModel/ResponseOrder';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +43,8 @@ export class ProductService {
     }
     getCategoryProduct():Observable<CategoryProductViewModel[]>{
       return this.httpClient.get<CategoryProductViewModel[]>(`${environment.APIBaseURL}/api/Category/catProduct`);
+    }
+    postOrderList(list:ProductCart[] , id:string):Observable<ResponseOrder>{
+      return this.httpClient.post<ResponseOrder>(`${environment.APIBaseURL}/api/Order?id=${id}`,JSON.stringify(list),this.httpOptions);
     }
   }
